@@ -11,7 +11,7 @@ export default function Business() {
 
     function onSubmitHandle(dataToDB) {
         if (!dataToDB.businessImageUrl) dataToDB.businessImageUrl = images.defaultCardImg;
-        axios.post('http://localhost:4000/cards/createforbusinessuser', dataToDB, { headers: { 'token': userInfo?.token } })
+        axios.post('https://business-card-app-by-em.herokuapp.com/cards/createforbusinessuser', dataToDB, { headers: { 'token': userInfo?.token } })
             .then(res => setResFromDb(res.data))
             .catch(err => setResFromDb(err.response.data))
     }

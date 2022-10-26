@@ -26,7 +26,7 @@ export default function Cards(props) {
 
     function editHandle(dataToDB) {
         if (!dataToDB.businessImageUrl) dataToDB.businessImageUrl = businessImageUrl;
-        axios.put(`http://localhost:4000/cards/updatemycardbyid?cardid=${cardId}`, dataToDB, { headers: { token: token } })
+        axios.put(`https://business-card-app-by-em.herokuapp.com/cards/updatemycardbyid?cardid=${cardId}`, dataToDB, { headers: { token: token } })
             .then(res => {
                 setResFromDb(res.data)
                 setTimeout(() => {
@@ -39,7 +39,7 @@ export default function Cards(props) {
     }
 
     function deleteHandle() {
-        axios.delete(`http://localhost:4000/cards/deletemycardbyid?cardid=${cardId}`, { headers: { token: token } })
+        axios.delete(`https://business-card-app-by-em.herokuapp.com/cards/deletemycardbyid?cardid=${cardId}`, { headers: { token: token } })
             .then(() => {
                 forceUpdateManagmentCards()
                 setDeletePopUpWindow(false)

@@ -16,12 +16,12 @@ export default function ManagmentCards() {
     const [itemsArr, setItemsArr] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:4000/cards/getallmycards', {
+        axios.get('https://business-card-app-by-em.herokuapp.com/cards/getallmycards', {
             headers: { token: `${userInfo?.token}` }
         })
             .then(res => setItemsArr(res.data))
             .catch(err => setItemsArr(err.response.data))
-    }, [update])
+    }, [update, userInfo])
 
     return (
         <div style={{ marginBottom: "100px" }}>

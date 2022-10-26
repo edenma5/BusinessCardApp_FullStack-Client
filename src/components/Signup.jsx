@@ -10,7 +10,7 @@ export default function Signup() {
     const [resFromDb, setResFromDb] = useState('')
 
     function onSubmitHandle(dataToDB) {
-        axios.post('http://localhost:4000/customers/new', dataToDB)
+        axios.post('https://business-card-app-by-em.herokuapp.com/customers/new', dataToDB)
             .then(res => setResFromDb(res.data))
             .catch(err => setResFromDb(err.response.data))
     }

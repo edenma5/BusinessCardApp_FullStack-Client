@@ -10,10 +10,10 @@ export default function AllBusinessCards() {
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
     useEffect(() => {
-        axios.get('http://localhost:4000/cards/getallcards', { headers: { token: userInfo?.token } })
+        axios.get('https://business-card-app-by-em.herokuapp.com/cards/getallcards', { headers: { token: userInfo?.token } })
             .then(res => setItemsArr(res.data))
             .catch(err => setItemsArr(err.response.data))
-    }, [])
+    }, [userInfo])
 
     return (
         <div style={{ marginBottom: "100px" }}>
