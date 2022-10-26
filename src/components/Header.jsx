@@ -65,7 +65,7 @@ export default function Header() {
                                 <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/about">About</NavLink>
                                 <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/signin">Signin</NavLink>
                                 <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/signup">Signup</NavLink>
-                                <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/business">Business</NavLink>
+                                {userInfo?.isBusinessAccount && <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/business">Business</NavLink>}
                                 {userInfo && <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/allbusinesscards">All Cards</NavLink>}
                                 {userInfo?.isBusinessAccount && <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/managmentcards">My Cards</NavLink>}
                             </section>
