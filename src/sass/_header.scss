@@ -1,0 +1,286 @@
+.navbarContainer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    background-color: rgb(231, 231, 231);
+    border-bottom-left-radius: 50px;
+    box-shadow: 0 2px 5px #000;
+
+    @include desktopXL {
+        padding: 1.4rem 1rem;
+    }
+
+    @include mobile {
+        padding: 1rem 1rem;
+        border-bottom-left-radius: 0px;
+    }
+
+    .logoContainer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-right: 20px;
+        cursor: pointer;
+
+        @include mobile {
+            margin-right: 0;
+        }
+
+        .logo {
+            width: 230px;
+            animation: logo 7s linear 1s infinite alternate;
+            transition: all 0.4s ease-in-out;
+
+            &:hover {
+                scale: 1.1;
+                translate: 10px;
+            }
+
+            @include desktopXL {
+                width: 280px;
+            }
+
+            @include mobile {
+                width: 200px;
+            }
+        }
+    }
+
+    .navbarLinks {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include tablet {
+            display: none;
+        }
+
+        .navItems {
+            margin: 0 1rem;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: center;
+            flex-direction: row;
+
+            @media screen and (max-width: 1190px) {
+                gap: 15px;
+            }
+
+            @include desktopXL {
+                gap: 50px;
+            }
+
+            .secondaryLinks {
+                width: 25vw;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                gap: 25px;
+
+                @include desktopXL {
+                    gap: 50px;
+                }
+
+                @media screen and (max-width: 1190px) {
+                    justify-content: flex-start;
+                    gap: 15px;
+                }
+            }
+
+            .navLink {
+                color: #6b7688;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 1em;
+                transition: all 0.3s ease-in-out;
+
+                @include desktopXL {
+                    font-size: 1.1em;
+                }
+
+                &:hover {
+                    color: #313bac;
+                }
+            }
+
+            .navLink:nth-child(6) {
+                margin-left: 5%;
+            }
+        }
+    }
+
+    .userLoggedContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        min-width: max-content;
+
+        @include tablet {
+            margin-left: auto;
+        }
+
+        @include mobile {
+            margin-right: auto;
+        }
+
+        .userIcon {
+            font-size: 2rem;
+
+            @include desktopXL {
+                font-size: 2.4em;
+            }
+
+            @include mobile {
+                font-size: 1.8rem;
+            }
+        }
+
+        .userNameLogged {
+            font-size: 1.1em;
+            width: max-content;
+
+
+            @include desktopXL {
+                font-size: 1.4em;
+            }
+
+            @include mobile {
+                font-size: 1em;
+            }
+        }
+
+        .logOutIcon {
+            margin-left: 4px;
+            font-size: .9rem;
+
+            @include desktopXL {
+                font-size: 1.1em;
+            }
+        }
+
+        .logOutText {
+            font-size: .8em;
+            cursor: pointer;
+
+            @include desktopXL {
+                font-size: .9em;
+            }
+        }
+
+        .signinBtnHeader {
+            font-size: 1.1em;
+            color: black;
+
+            @include desktopXL {
+                font-size: 1.3em;
+            }
+        }
+    }
+
+    .navbarSideMenuContainer {
+        @media screen and (min-width:769px) {
+            display: none;
+        }
+
+        min-width: 35px;
+        min-height: 35px;
+        margin-left: 1.5rem;
+        border-radius: 50%;
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #528265;
+
+        .menuIcon {
+            width: 70%;
+            height: 70%;
+            color: #ffffff;
+        }
+
+        .sideMenuContainer {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 5;
+
+            padding: 1rem;
+            width: 150px;
+            height: 100vh;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            flex-direction: column;
+            background-color: rgb(231, 231, 231);
+            background-size: cover;
+            background-repeat: repeat;
+
+            box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
+
+            .closeIcon {
+                width: 35px;
+                height: 35px;
+                color: #528265;
+                margin: .5rem 1rem;
+            }
+
+            .navItemsSideMenu {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                width: 100%;
+
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 30px;
+
+                .navLinkSideMenu {
+                    color: #6b7688;
+                    text-decoration: none;
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    font-weight: 500;
+
+                    &:hover {
+                        color: #313bac;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes logo {
+
+    0%,
+    100% {
+        rotate: 0deg
+    }
+
+    25%,
+    80% {
+        rotate: -3deg
+    }
+
+    40%,
+    65% {
+        rotate: -6deg
+    }
+}

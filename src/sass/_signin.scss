@@ -1,0 +1,47 @@
+#signinContainer {
+    @extend %windowStyle;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 380px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 1rem;
+
+    @include desktopXL {
+        width: 480px;
+        height: 400px;
+        padding: 1.5rem 1rem;
+    }
+
+    @include mobile {
+        width: 85vw;
+    }
+
+    #signinForm {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 80%;
+        height: 85%;
+
+        @include desktopXL {
+            gap: 10px;
+        }
+
+        .validateMsg {
+            @extend %validateMsg;
+        }
+
+        .submitBtn {
+            @extend %submitBtn;
+        }
+
+        .signupBtn {
+            @extend %secondaryBtn
+        }
+    }
+
+    .resFromDb {
+        @extend %resFromDb;
+    }
+}

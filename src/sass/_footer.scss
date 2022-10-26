@@ -1,0 +1,79 @@
+.footerWrap {
+    height: 15rem;
+
+    @include desktopXL {
+        height: 20rem;
+    }
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: .9rem 0;
+    min-height: fit-content;
+    width: 100vw;
+    background-color: rgb(196, 196, 196);
+    box-shadow: 0 -2px 5px #000;
+
+    @include desktopXL {
+        padding: 1.3rem 0;
+    }
+
+    @include mobile {
+        padding: .5rem 0;
+    }
+
+    .copyright {
+        font-weight: normal;
+        font-size: .8em;
+        margin: auto auto 0;
+
+        @include desktopXL {
+            font-size: 1em;
+        }
+
+        @include mobile {
+            font-size: .7em;
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+
+        li {
+            list-style: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.1em;
+            letter-spacing: 1.5px;
+
+            @include desktopXL {
+                font-size: 1.3em;
+            }
+
+            @include tablet {
+                letter-spacing: 1px;
+                font-size: 1em;
+            }
+
+            @include mobile {
+                font-size: .9em;
+            }
+
+            .footerLink {
+                text-transform: capitalize;
+                color: #000;
+                text-decoration: none;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    color: #313bac;
+                }
+            }
+        }
+    }
+}
