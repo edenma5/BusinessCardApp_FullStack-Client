@@ -153,6 +153,10 @@ body {
   background-repeat: no-repeat;
   background-position: top;
   background-attachment: fixed;
+
+  @include mobile {
+    background-attachment: scroll;
+  }
 }
 
 .mainTitleContainer {
