@@ -14,7 +14,7 @@
     }
 
     @include mobile {
-        padding: 1rem 1rem;
+        padding: .7rem 0.4rem;
         border-bottom-left-radius: 0px;
     }
 
@@ -45,6 +45,11 @@
 
             @include mobile {
                 width: 200px;
+
+                &:hover {
+                    scale: 1;
+                    translate: 0px;
+                }
             }
         }
     }
@@ -132,7 +137,7 @@
         }
 
         @include mobile {
-            margin-right: auto;
+            // margin-right: 1%;
         }
 
         .userIcon {
@@ -143,7 +148,7 @@
             }
 
             @include mobile {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
         }
 
@@ -157,7 +162,7 @@
             }
 
             @include mobile {
-                font-size: 1em;
+                font-size: .9em;
             }
         }
 
@@ -168,6 +173,10 @@
             @include desktopXL {
                 font-size: 1.1em;
             }
+
+            @include mobile {
+                font-size: .8rem;
+            }
         }
 
         .logOutText {
@@ -176,6 +185,10 @@
 
             @include desktopXL {
                 font-size: .9em;
+            }
+
+            @include mobile {
+                font-size: .7em;
             }
         }
 
@@ -196,7 +209,7 @@
 
         min-width: 35px;
         min-height: 35px;
-        margin-left: 1.5rem;
+        margin-left: 1rem;
         border-radius: 50%;
         position: relative;
 

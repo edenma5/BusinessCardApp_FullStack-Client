@@ -13,7 +13,7 @@ export default function Footer() {
                     <li><Link className='footerLink' to="/signin">Signin</Link></li>
                     <li><Link className='footerLink' to="/signup">Signup</Link></li>
                 </ul>
-                <h5 className='copyright'>Copyright© {currentYear} Card App By Eden Maimon. All Rights Reserved. </h5>
+                <h5 className='copyright'>Copyright© {currentYear} Business Card App By Eden Maimon</h5>
             </footer>
             <Outlet />
         </>
