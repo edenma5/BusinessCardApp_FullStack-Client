@@ -9,7 +9,7 @@ export default function Home() {
         <div style={{ marginBottom: "100px" }}>
             <div className='mainTitleContainer'>
                 <h1 className="mainTitle">{userInfo ? `Hello ${userInfo.fullName}` : "Business Card App"}</h1>
-                <h6 className='littleTitle'>{userInfo ? <span style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>Business Card App <span style={{ fontFamily: 'Dancing Script' }}>By Eden Maimon</span></span> : <span style={{ fontFamily: 'Dancing Script' }}>By Eden Maimon</span>}</h6>
+                <h6 className='littleTitle'>{userInfo ? <span style={{ fontFamily: 'Roboto' }}>Business Card App <span style={{ fontFamily: 'Dancing Script' }}>By Eden Maimon</span></span> : <span style={{ fontFamily: 'Dancing Script' }}>By Eden Maimon</span>}</h6>
             </div>
 
             {userInfo ?
