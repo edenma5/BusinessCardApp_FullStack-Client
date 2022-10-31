@@ -161,6 +161,7 @@ body {
   @include mobile {
     background-size: auto;
     background-position: top;
+    background-attachment: fixed;
   }
 }
 
