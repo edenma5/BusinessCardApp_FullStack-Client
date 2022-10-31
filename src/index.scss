@@ -157,12 +157,6 @@ body {
   background-repeat: no-repeat;
   background-position: top;
   background-attachment: fixed;
-
-  @include mobile {
-    background-size: auto;
-    background-position: top;
-    background-attachment: fixed;
-  }
 }
 
 .mainTitleContainer {
@@ -247,6 +241,11 @@ body {
   @include tablet {
     width: 100vw;
     padding: 4rem .5rem;
+  }
+
+  @include mobile {
+    height: 100vh;
+    overflow-y: scroll
   }
 
   .messageToClient {
