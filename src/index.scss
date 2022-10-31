@@ -173,6 +173,7 @@ body {
   border-bottom-left-radius: 60px;
   border-bottom-right-radius: 60px;
   backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 
   @include desktopXL {
     width: 720px;

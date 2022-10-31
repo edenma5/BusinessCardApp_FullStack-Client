@@ -52,10 +52,10 @@ export default function Cards(props) {
             {deletePopUpWindow &&
                 <div className="blackWindowContainer">
                     <div className="deletePopUpContainer">
-                        <h4 className='verifyDeleteContent'>Delete this card?</h4>
+                        <h4 className='verifyDeleteContent'>Are you sure you want to delete: <br /> {businessName} ?</h4>
                         <CardActions className="buttonsContainer">
-                            <Button size="medium" color="warning" variant="contained" onClick={deleteHandle}>Yes</Button>
-                            <Button size="medium" variant="contained" onClick={() => setDeletePopUpWindow(false)} >No</Button>
+                            <Button size="large" color="warning" variant="contained" onClick={deleteHandle}>Yes</Button>
+                            <Button size="large" variant="contained" onClick={() => setDeletePopUpWindow(false)} >No</Button>
                         </CardActions>
                     </div>
                 </div>
@@ -110,6 +110,10 @@ export default function Cards(props) {
                                     variant='standard'
                                     id="businessPhoneNumber"
                                     {...register("businessPhoneNumber", {
+                                        pattern: {
+                                            value: /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4,9})$/,
+                                            message: 'Phone Numbers Only'
+                                        },
                                         minLength: {
                                             value: 10, message: "Phone Number must be at least 10 characters"
                                         }, maxLength: { value: 15, message: "Phone Number must contain up to 15 characters" }
@@ -118,10 +122,13 @@ export default function Cards(props) {
 
                                 <TextField
                                     type="text"
-                                    label="Business Image Url"
+                                    label="Business Image (URL)"
                                     variant='standard'
                                     id="businessImageUrl"
                                     {...register("businessImageUrl", {
+                                        pattern: {
+                                            value: /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/, message: 'URL Only!'
+                                        },
                                         maxLength: { value: 300, message: "Image Url must contain up to 300 characters" }
                                     })}></TextField>
                                 <span className="validateMsg">{errors.businessImageUrl?.message}</span>
