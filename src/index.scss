@@ -16,6 +16,11 @@
 }
 
 @font-face {
+  font-family: Akaya Telivigala;
+  src: url(../fonts/Akaya_Telivigala/AkayaTelivigala-Regular.ttf);
+}
+
+@font-face {
   font-family: Roboto;
   src: url(../fonts/Roboto/Roboto-Regular.ttf);
 }
@@ -75,6 +80,7 @@ $mainColor: #528265;
 
 %windowStyle {
   position: relative;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -157,46 +163,45 @@ body {
 
 .mainTitleContainer {
   position: relative;
-  z-index: -1;
-  font-family: 'Special Elite', cursive;
-  width: 70vw;
-  height: 80px;
-  margin: 0 auto 40px;
-  border-bottom-left-radius: 60px;
-  border-bottom-right-radius: 60px;
-  background-color: rgba(225, 225, 225, 0.7);
-  box-shadow: inset -0.5px -20px 3px 3px rgba(0, 0, 0, 0.8);
+  z-index: 0;
+  font-family: Akaya Telivigala;
+  width: 650px;
+  height: 120px;
+  margin: 20px auto 40px;
   padding: 10px 0;
 
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  backdrop-filter: blur(2px);
+
   @include desktopXL {
-    height: 100px;
-    box-shadow: inset -0.5px -25px 3px 3px rgba(0, 0, 0, 0.8);
+    width: 720px;
   }
 
   @include tablet {
-    height: 70px;
-    box-shadow: inset -0.5px -15px 3px 3px rgba(0, 0, 0, 0.8);
+    width: 485px;
+    height: 90px;
   }
 
   @include mobile {
-    width: 95vw;
+    width: 100%;
   }
 
   .mainTitle {
     height: auto;
     text-align: center;
-    font-size: 2.5em;
-    line-height: 1.2;
-    color: #000;
-    text-shadow: 1px 1px 2px rgb(208, 208, 208);
+    font-size: 3.5em;
+    letter-spacing: 5px;
+    color: rgb(132, 160, 150);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
 
     @include desktopXL {
-      font-size: 3.5em;
-      letter-spacing: 2.5px;
+      font-size: 4em;
     }
 
     @include tablet {
-      font-size: 2em;
+      font-size: 2.5em;
+      letter-spacing: 4px;
     }
 
     @include mobile {
@@ -205,14 +210,10 @@ body {
   }
 
   .littleTitle {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: -6px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto;
     height: auto;
     text-align: center;
-    font-size: 1em;
+    font-size: 1.1em;
     color: rgb(229, 229, 229);
     text-shadow: 1px 1px 2px #000;
     letter-spacing: 2.5px;
@@ -222,9 +223,7 @@ body {
     }
 
     @include tablet {
-      font-size: .8em;
-      letter-spacing: 1.5px;
-      bottom: -5px;
+      font-size: .9em;
     }
   }
 }

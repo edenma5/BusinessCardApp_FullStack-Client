@@ -1,13 +1,15 @@
 .navbarContainer {
     width: 100%;
     position: relative;
+    z-index: 5;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 1.5rem;
-    background-color: rgb(231, 231, 231);
+    padding: .6rem 1.5rem;
+    background-color: #edf2f848;
+    backdrop-filter: blur(6px);
     border-bottom-left-radius: 50px;
-    box-shadow: 0 2px 5px #000;
+    box-shadow: 0 1.5px 20px #6b768877;
 
     @include desktopXL {
         padding: 1.4rem 1rem;
@@ -55,7 +57,7 @@
     }
 
     .navbarLinks {
-        width: 100%;
+        width: 60%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -65,7 +67,7 @@
         }
 
         .navItems {
-            margin: 0 1rem;
+            // margin: 0 1rem;
             width: 100%;
             cursor: pointer;
             display: flex;
@@ -85,8 +87,10 @@
             }
 
             .secondaryLinks {
-                width: 25vw;
+                width: 100%;
                 display: flex;
+                flex: 1;
+                flex-wrap: nowrap;
                 flex-direction: row;
                 justify-content: flex-end;
                 gap: 25px;
@@ -229,21 +233,25 @@
             top: 0;
             bottom: 0;
             right: 0;
-            z-index: 5;
+            z-index: 10000;
 
             padding: 1rem;
             width: 150px;
-            height: 100vh;
+            height: 400px;
 
             display: flex;
             justify-content: flex-end;
             align-items: flex-end;
             flex-direction: column;
-            background-color: rgb(231, 231, 231);
-            background-size: cover;
-            background-repeat: repeat;
 
-            box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
+            background-color: #edf2f8;
+            background-image: url(../Images/bgWhite.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: left;
+
+            border-bottom-left-radius: 40px;
+            box-shadow: 0 0 10px #6b76887f;
 
             .closeIcon {
                 width: 35px;
@@ -259,8 +267,8 @@
                 width: 100%;
 
                 display: flex;
-                justify-content: flex-start;
-                align-items: flex-start;
+                justify-content: center;
+                align-items: center;
                 flex-direction: column;
                 gap: 20px;
 

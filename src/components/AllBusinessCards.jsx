@@ -21,7 +21,6 @@ export default function AllBusinessCards() {
             <div className='mainTitleContainer'>
                 <h1 className="mainTitle">All Business Cards</h1>
             </div>
-
             <div id='cardContiner'>
                 {itemsArr[0]?.message ? <div className="messageToClient"><h4 style={{ fontSize: '2em' }}>{itemsArr[0].message}</h4></div> : itemsArr.length === 0 ?
                     <div className="messageToClient">

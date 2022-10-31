@@ -30,10 +30,12 @@ export default function Header() {
                     <div className='navItems'>
                         <NavLink className="navLink" aria-current="page" to="/">Home</NavLink>
                         <NavLink className="navLink" to="/about">About</NavLink>
-                        <NavLink className="navLink" to="/signin">Signin</NavLink>
-                        <NavLink className="navLink" to="/signup">Signup</NavLink>
-                        {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/business">Business</NavLink>}
+                        {!userInfo && <>
+                            <NavLink className="navLink" to="/signin">Signin</NavLink>
+                            <NavLink className="navLink" to="/signup">Signup</NavLink>
+                        </>}
                         <div className='secondaryLinks'>
+                            {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/business">Business</NavLink>}
                             {userInfo && <NavLink className="navLink" to="/allbusinesscards">All Cards</NavLink>}
                             {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/managmentcards">My Cards</NavLink>}
                         </div>

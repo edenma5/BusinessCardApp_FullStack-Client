@@ -1,6 +1,7 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 import images from '../Images/index'
 import axios from 'axios'
 
@@ -8,11 +9,17 @@ export default function Business() {
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
     const [resFromDb, setResFromDb] = useState({})
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const navigate = useNavigate();
 
     function onSubmitHandle(dataToDB) {
         if (!dataToDB.businessImageUrl) dataToDB.businessImageUrl = images.defaultCardImg;
         axios.post('https://business-card-app-by-em.herokuapp.com/cards/createforbusinessuser', dataToDB, { headers: { 'token': userInfo?.token } })
-            .then(res => setResFromDb(res.data))
+            .then(res => {
+                setResFromDb(res.data)
+                setTimeout(() => {
+                    navigate('/managmentcards')
+                }, 1500)
+            })
             .catch(err => setResFromDb(err.response.data))
     }
 
@@ -68,7 +75,10 @@ export default function Business() {
                         label='Business Phone*'
                         id="standard-basic"
                         {...register("businessPhoneNumber", {
-                            required: "Please enter phone number", minLength: {
+                            required: "Please enter phone number", pattern: {
+                                value: /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4,9})$/,
+                                message: 'Phone Numbers Only'
+                            }, minLength: {
                                 value: 10, message: "Phone Number must be at least 10 characters"
                             }, maxLength: { value: 15, message: "Phone Number must contain up to 15 characters" }
                         })}></TextField>
@@ -77,10 +87,13 @@ export default function Business() {
                     <TextField
                         type="text"
                         variant="standard"
-                        label='Business Image'
+                        label='Business Image (URL)'
                         id="standard-basic"
                         {...register("businessImageUrl", {
-                            maxLength: { value: 300, message: "Image Url must contain up to 300 characters" }
+                            pattern: {
+                                value: /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/, message: 'URL Only!'
+                            },
+                            maxLength: { value: 300, message: "Image URL must contain up to 300 characters" }
                         })}></TextField>
                     <span className="validateMsg">{errors.businessImageUrl?.message}</span>
 
