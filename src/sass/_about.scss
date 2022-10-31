@@ -3,12 +3,12 @@
     background-color: rgba(255, 255, 255, 0.8);
     margin: 0 auto;
     padding: 2.5rem 3rem;
-    width: 900px;
+    width: 1000px;
     height: fit-content;
 
     @include desktopXL {
         padding: 3rem 3.5rem;
-        width: 1100px;
+        width: 1200px;
     }
 
     @include desktop {
