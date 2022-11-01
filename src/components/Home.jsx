@@ -25,7 +25,7 @@ export default function Home() {
         <div style={{ marginBottom: "100px" }}>
             <div className='mainTitleContainer'>
                 <h1 className="mainTitle">Business Card App</h1>
-                <h6 className='littleTitle'><span style={{ fontFamily: 'Dancing Script', letterSpacing: '4px', fontSize: '1.1em' }}>By Eden Maimon</span></h6>
+                {/* <h6 className='littleTitle'><span style={{ fontFamily: 'Dancing Script', letterSpacing: '4px', fontSize: '1.1em' }}>By Eden Maimon</span></h6> */}
             </div>
 
             {userInfo ?
