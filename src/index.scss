@@ -157,6 +157,12 @@ body {
   background-repeat: no-repeat;
   background-position: top;
   background-attachment: fixed;
+
+  @include mobile {
+    background-image: url('../src/Images/abstract-bubbles-white-background-with-bubbles-illustration-white_257312-308.webp');
+    background-repeat: repeat;
+    background-attachment: local;
+  }
 }
 
 .mainTitleContainer {
