@@ -18,7 +18,7 @@ export default function Signin() {
                 setUserName(userInfo?.fullName)
                 setTimeout(() => {
                     navigate('/')
-                }, 1500)
+                }, 2000)
                 return userInfo;
             })
             .catch(err => setResFromDb(err.response.data))

@@ -11,7 +11,12 @@ export default function Signup() {
 
     function onSubmitHandle(dataToDB) {
         axios.post('https://business-card-app-by-em.herokuapp.com/customers/new', dataToDB)
-            .then(res => setResFromDb(res.data))
+            .then(res => {
+                setResFromDb(res.data)
+                setTimeout(() => {
+                    navigate('/signin')
+                }, 2000)
+            })
             .catch(err => setResFromDb(err.response.data))
     }
 

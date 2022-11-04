@@ -25,16 +25,15 @@ export default function Home() {
         <div style={{ marginBottom: "100px" }}>
             <div className='mainTitleContainer'>
                 <h1 className="mainTitle">Business Card App</h1>
-                {/* <h6 className='littleTitle'><span style={{ fontFamily: 'Dancing Script', letterSpacing: '4px', fontSize: '1.1em' }}>By Eden Maimon</span></h6> */}
             </div>
 
             {userInfo ?
                 <div className='homePageContentContainer'>
                     <div className='homePageContent'>
                         <span style={{ fontWeight: 'bolder', fontSize: '1.2em', color: '#46364a', letterSpacing: '2px' }}>{textByTime()} </span><span className='specialWords' style={{ color: 'rgb(132, 160, 150)' }}> {userInfo.fullName}</span><span className="emojiHand">👋🏼</span><br /><br />
-                        In <span style={{ cursor: 'pointer', color: 'rgb(0, 101, 101)', fontWeight: 'bolder', fontSize: '1.2em' }} onClick={() => navigate('/allbusinesscards')}>All Cards</span> tab you can find all the business cards which belongs to our business customers, who will be happy to provide you with professional, quality and kindly service.<br />
+                        In <span style={{ cursor: 'pointer', color: '#528265', textShadow: '1px 1px 1px #6f6f6f' }} onClick={() => navigate('/allbusinesscards')}>All Cards</span> tab you can find all the business cards which belongs to our business customers, who will be happy to provide you with professional, quality and kindly service.<br />
                         From small to large size businesses, everything here is in a simple and convenient system.<br /><br />
-                        {userInfo?.isBusinessAccount && <p>In your <span style={{ cursor: 'pointer', color: 'rgb(0, 101, 101)', fontWeight: 'bolder', fontSize: '1.2em' }} onClick={() => navigate('/managmentcards')}>Personal Area</span>, You can always edit or delete your cards, And of course to create new business cards, as many as you want!</p>}
+                        {userInfo?.isBusinessAccount && <p>In your <span style={{ cursor: 'pointer', color: '#528265', textShadow: '1px 1px 1px #6f6f6f' }} onClick={() => navigate('/managmentcards')}>Personal Area</span>, You can always edit or delete your cards, And of course to create new business cards, as many as you want!</p>}
                     </div>
                 </div> :
                 <div className='homePageContentContainer'>

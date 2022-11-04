@@ -8,7 +8,7 @@ import { HiMenuAlt4, HiX } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 
 export default function Header() {
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(false);
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
     const navigate = useNavigate()
     const [, updateState] = useState();
@@ -28,17 +28,17 @@ export default function Header() {
                 </div>
                 <div className='navbarLinks'>
                     <div className='navItems'>
-                        <NavLink className="navLink" aria-current="page" to="/">Home</NavLink>
-                        <NavLink className="navLink" to="/about">About</NavLink>
+                        <NavLink className={isActive => 'navLink ' + (isActive ? 'active' : 'inactive')} to="/">Home</NavLink>
+                        <NavLink className='navLink' to="/about">About</NavLink>
                         {!userInfo && <>
                             <NavLink className="navLink" to="/signin">Signin</NavLink>
                             <NavLink className="navLink" to="/signup">Signup</NavLink>
                         </>}
-                        <div className='secondaryLinks'>
-                            {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/business">Business</NavLink>}
-                            {userInfo && <NavLink className="navLink" to="/allbusinesscards">All Cards</NavLink>}
-                            {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/managmentcards">My Cards</NavLink>}
-                        </div>
+                        {/* <div className='secondaryLinks'> */}
+                        {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/business">Business</NavLink>}
+                        {userInfo && <NavLink className="navLink" to="/allbusinesscards">All Cards</NavLink>}
+                        {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/managmentcards">My Cards</NavLink>}
+                        {/* </div> */}
                     </div>
                 </div>
 

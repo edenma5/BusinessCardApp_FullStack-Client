@@ -33,7 +33,7 @@ export default function Cards(props) {
                     setEditPopUpWindow(false)
                     forceUpdateManagmentCards()
                     setResFromDb({})
-                }, 1500)
+                }, 2000)
             })
             .catch(err => console.error(err.response.data))
     }

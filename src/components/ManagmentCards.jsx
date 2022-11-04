@@ -14,14 +14,24 @@ export default function ManagmentCards() {
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
     const navigate = useNavigate()
     const [itemsArr, setItemsArr] = useState([]);
+    const [tokenExpired, setTokenExpired] = useState(false);
 
     useEffect(() => {
         axios.get('https://business-card-app-by-em.herokuapp.com/cards/getallmycards', {
             headers: { token: `${userInfo?.token}` }
         })
             .then(res => setItemsArr(res.data))
-            .catch(err => setItemsArr(err.response.data))
-    }, [update, userInfo])
+            .catch(err => {
+                if (err.response.data[0].message === 'Token Expired') setTokenExpired(true);
+                else setItemsArr([])
+            })
+    }, [update]);
+
+    function tokenExpiredHandle() {
+        localStorage.clear();
+        setTokenExpired(false);
+        navigate('/signin');
+    }
 
     return (
         <div style={{ marginBottom: "100px" }}>
@@ -29,10 +39,10 @@ export default function ManagmentCards() {
                 <h1 className="mainTitle">My Business Cards</h1>
             </div>
             <div id='cardContiner'>
-                {itemsArr[0]?.message ? <div className="messageToClient"><h4 style={{ fontSize: '2em' }}>{itemsArr[0].message}</h4></div> : itemsArr.length === 0 ?
+                {tokenExpired ? <div className="messageToClient"><h4 style={{ fontSize: '2em' }}>Dear customer,<br /> Your stay on this site has expired, you can log in again by <span style={{ cursor: 'pointer', color: '#528265', textShadow: '1px 1px 1px #6f6f6f' }} onClick={() => tokenExpiredHandle()}>clicking here</span></h4></div> : itemsArr.length === 0 ?
                     <div className="messageToClient">
                         <h4 style={{ fontSize: '2em' }}>I'ts looks like you haven't created a business card yet</h4>
-                        <h4 style={{ fontSize: '2em' }}>You can do it right <span style={{ cursor: 'pointer', color: '#528265', fontWeight: 'bolder' }} onClick={() => navigate('/business')}>here</span></h4>
+                        <h4 style={{ fontSize: '2em' }}>You can do it right <span style={{ cursor: 'pointer', color: '#528265', textShadow: '1px 1px 1px #6f6f6f' }} onClick={() => navigate('/business')}>here</span></h4>
                     </div> : itemsArr.map((item) => {
                         return (
                             <Card sx={{ width: 260 }} key={item._id} id='card'>

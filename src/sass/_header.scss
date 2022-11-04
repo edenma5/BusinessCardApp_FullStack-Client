@@ -58,10 +58,9 @@
     }
 
     .navbarLinks {
-        width: 60%;
+        width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
 
         @include tablet {
             display: none;
@@ -72,37 +71,41 @@
             cursor: pointer;
             display: flex;
             flex-direction: row;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            gap: 25px;
+            justify-content: center;
             align-items: center;
-            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 30px;
 
-            @media screen and (max-width: 1190px) {
+            @include desktop {
                 gap: 15px;
+                justify-content: space-evenly;
             }
 
             @include desktopXL {
                 gap: 50px;
             }
 
-            .secondaryLinks {
-                width: 100%;
-                display: flex;
-                flex: 1;
-                flex-wrap: nowrap;
-                flex-direction: row;
-                justify-content: flex-end;
-                gap: 25px;
+            // .secondaryLinks {
+            //     // width: 100%;
+            //     display: flex;
+            //     // flex: 1;
+            //     flex-wrap: nowrap;
+            //     flex-direction: row;
+            //     justify-content: flex-end;
+            //     gap: 25px;
 
-                @include desktopXL {
-                    gap: 50px;
-                }
+            //     @include desktopXL {
+            //         gap: 50px;
+            //     }
 
-                @media screen and (max-width: 1190px) {
-                    justify-content: flex-start;
-                    gap: 15px;
-                }
+            //     @media screen and (max-width: 1190px) {
+            //         justify-content: flex-start;
+            //         gap: 15px;
+            //     }
+            // }
+
+            .active {
+                color: #313bac !important;
             }
 
             .navLink {
@@ -111,6 +114,7 @@
                 text-transform: uppercase;
                 font-weight: 500;
                 font-size: 1em;
+                padding: .3rem;
                 transition: all 0.3s ease-in-out;
 
                 @include desktopXL {
@@ -135,6 +139,7 @@
         align-items: center;
         height: auto;
         min-width: max-content;
+        margin-left: 1.5rem;
 
         @include tablet {
             margin-left: auto;

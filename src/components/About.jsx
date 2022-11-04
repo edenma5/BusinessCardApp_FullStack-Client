@@ -9,7 +9,7 @@ export default function About() {
 
             <div className='aboutContentContainer'>
                 <div className='aboutContent'>
-                    <span className='specialWords' style={{ color: '#528265' }}>Welcome </span> to the best business card application in the world!<br /><br />
+                    <span className='specialWords' style={{ color: 'rgb(132, 160, 150)' }}>Welcome </span> to the best business card application in the world!<br /><br />
                     You can enjoy a professional business card to promote your business!<br />
                     Your business card can contain:<br />
                     <ul>
