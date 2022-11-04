@@ -40,8 +40,8 @@ export default function Home() {
                     <div className='homePageContent'>
                         <span className='specialWords' style={{ color: 'rgb(132, 160, 150)' }}>Welcome</span> to the best business card application in the world!<br /><br />
                         It seems that you are not logged in yet.<br />
-                        We invite you to register by clicking <span style={{ cursor: 'pointer', color: 'rgb(0, 101, 101)', fontWeight: 'bolder', fontSize: '1.2em' }} onClick={() => navigate('/signup')}>here!</span> <span className='specialWords' style={{ color: 'lightsteelblue', rotate: '10deg', fontSize: '1em', marginLeft: '3rem' }}>It's free!!</span><br />
-                        Or <span style={{ cursor: 'pointer', color: 'rgb(0, 101, 101)', fontWeight: 'bolder', fontSize: '1.2em' }} onClick={() => navigate('/signin')}>sign in</span> if you already have an account.<br />
+                        We invite you to register by clicking <span style={{ cursor: 'pointer', color: '#528265', textShadow: '1px 1px 1px #6f6f6f' }} onClick={() => navigate('/signup')}>here!</span> <span className='specialWords' style={{ color: 'lightsteelblue', rotate: '10deg', fontSize: '1em', marginLeft: '3rem' }}>It's free!!</span><br />
+                        Or <span style={{ cursor: 'pointer', color: '#528265', textShadow: '1px 1px 1px #6f6f6f' }} onClick={() => navigate('/signin')}>sign in</span> if you already have an account.<br />
                     </div>
                 </div>}
         </div>
