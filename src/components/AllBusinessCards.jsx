@@ -34,7 +34,7 @@ export default function AllBusinessCards() {
                 <h1 className="mainTitle">All Business Cards</h1>
             </div>
             <div id='cardContiner'>
-                {tokenExpired ? <div className="messageToClient"><h4 style={{ fontSize: '2em' }}>Dear customer,<br /> Your stay on this site has expired, you can log in again by <span style={{ cursor: 'pointer', color: 'rgb(0, 101, 101)', fontWeight: 'bolder', fontSize: '1.2em' }} onClick={() => tokenExpiredHandle()}>clicking here</span></h4></div> :
+                {true ? <div className="messageToClient"><h4 style={{ fontSize: '2em' }}>Dear customer,<br /> Your stay on this site has expired, you can log in again by <span style={{ cursor: 'pointer', color: '#528265', textShadow: '1px 1px 1px #6f6f6f' }} onClick={() => tokenExpiredHandle()}>clicking here</span></h4></div> :
                     itemsArr.length === 0 ?
                         <div className="messageToClient">
                             <h4 style={{ fontSize: '2em' }}>No data to display</h4>
