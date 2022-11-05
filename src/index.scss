@@ -238,11 +238,11 @@ body {
 }
 
 .loadingSpinner {
-  position: fixed;
+  position: absolute;
   z-index: 2;
   left: 50%;
   translate: -50%;
-  bottom: 3%;
+  bottom: -12%;
   width: 55px;
   height: 55px;
   background-color: #528265ce;

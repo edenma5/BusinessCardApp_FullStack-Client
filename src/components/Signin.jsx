@@ -41,7 +41,7 @@ export default function Signin() {
             </div>
             <section id="signinContainer">
                 <form id="signinForm" onSubmit={handleSubmit((data) => { onSubmitHandle(data) })}>
-                    {loading && <Spinner className='loadingSpinner' animation="grow" variant="secondary" />}
+                    {loading && <Spinner className='loadingSpinner' style={{ bottom: '-18%' }} animation="grow" variant="secondary" />}
                     <TextField
                         className='inputField'
                         type="text"
