@@ -237,6 +237,23 @@ body {
   }
 }
 
+.loadingSpinner {
+  position: fixed;
+  z-index: 2;
+  left: 50%;
+  translate: -50%;
+  bottom: 3%;
+  width: 55px;
+  height: 55px;
+  background-color: #528265ce;
+  border: 15px double rgba(238, 247, 255, 0.8);
+
+  @include mobile {
+    width: 50px;
+    height: 50px;
+  }
+}
+
 #cardContiner {
   display: flex;
   flex-direction: row;

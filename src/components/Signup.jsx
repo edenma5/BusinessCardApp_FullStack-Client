@@ -1,34 +1,42 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, FormControlLabel, FormGroup, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import Spinner from 'react-bootstrap/Spinner';
+import { loader } from './App';
 
 export default function Signup() {
+    const { loading, setLoading } = useContext(loader);
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [resFromDb, setResFromDb] = useState('')
 
     function onSubmitHandle(dataToDB) {
+        setLoading(true)
         axios.post('https://business-card-app-by-em.herokuapp.com/customers/new', dataToDB)
             .then(res => {
                 setResFromDb(res.data)
+                setLoading(false)
                 setTimeout(() => {
                     navigate('/signin')
                 }, 2000)
             })
-            .catch(err => setResFromDb(err.response.data))
+            .catch(err => {
+                setResFromDb(err.response.data)
+                setLoading(false)
+            })
     }
 
     return (
         <div style={{ marginBottom: "100px" }}>
             <div className='mainTitleContainer'>
-                <h1 className="mainTitle">Signup</h1>
+                <h1 className="mainTitle">Sign up</h1>
             </div>
 
             <section id="signupContainer">
                 <form id="signupForm" onSubmit={handleSubmit((data) => { onSubmitHandle(data) })}>
-
+                    {loading && <Spinner className='loadingSpinner' animation="grow" variant="secondary" />}
                     <TextField
                         type="text"
                         variant="standard"
@@ -74,8 +82,8 @@ export default function Signup() {
                         <FormControlLabel control={<Checkbox {...register("isBusinessAccount")} />} label="Business Account?" />
                     </FormGroup>
 
-                    <Button className="submitBtn" variant="contained" type="submit" >Signup</Button>
-                    <Button variant="contained" className="signinBtn" size="small" type="button" onClick={() => { navigate('/signin') }} >Signin</Button>
+                    <Button className="submitBtn" variant="contained" type="submit" >Sign up</Button>
+                    <Button variant="contained" className="signinBtn" size="small" type="button" onClick={() => { navigate('/signin') }} >Sign in</Button>
                 </form>
                 <span className="resFromDb">{resFromDb}</span>
             </section>

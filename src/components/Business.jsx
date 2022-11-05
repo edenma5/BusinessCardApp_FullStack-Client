@@ -1,26 +1,33 @@
 import { Button, TextField } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import images from '../Images/index'
 import axios from 'axios'
-
+import Spinner from 'react-bootstrap/Spinner';
+import { loader } from './App';
 export default function Business() {
+    const { loading, setLoading } = useContext(loader);
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
     const [resFromDb, setResFromDb] = useState({})
     const { register, handleSubmit, formState: { errors } } = useForm()
     const navigate = useNavigate();
 
     function onSubmitHandle(dataToDB) {
+        setLoading(true)
         if (!dataToDB.businessImageUrl) dataToDB.businessImageUrl = images.defaultCardImg;
         axios.post('https://business-card-app-by-em.herokuapp.com/cards/createforbusinessuser', dataToDB, { headers: { 'token': userInfo?.token } })
             .then(res => {
                 setResFromDb(res.data)
+                setLoading(false)
                 setTimeout(() => {
                     navigate('/managmentcards')
                 }, 1500)
             })
-            .catch(err => setResFromDb(err.response.data))
+            .catch(err => {
+                setResFromDb(err.response.data)
+                setLoading(false)
+            })
     }
 
     return (
@@ -33,6 +40,7 @@ export default function Business() {
 
             <section id="businessContainer">
                 <form id="businessForm" onSubmit={handleSubmit((data) => { onSubmitHandle(data) })}>
+                    {loading && <Spinner className='loadingSpinner' animation="grow" variant="secondary" />}
                     <TextField
                         type="text"
                         variant="standard"
@@ -97,7 +105,7 @@ export default function Business() {
                         })}></TextField>
                     <span className="validateMsg">{errors.businessImageUrl?.message}</span>
 
-                    <Button variant="contained" type="submit" className='submitBtn'>Add Card</Button>
+                    <Button variant="contained" type="submit" className='submitBtn'>Create Card</Button>
                 </form>
                 <span className="resFromDb">{resFromDb[0]?.message}</span>
             </section>

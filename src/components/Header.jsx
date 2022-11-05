@@ -31,8 +31,8 @@ export default function Header() {
                         <NavLink className={isActive => 'navLink ' + (isActive ? 'active' : 'inactive')} to="/">Home</NavLink>
                         <NavLink className='navLink' to="/about">About</NavLink>
                         {!userInfo && <>
-                            <NavLink className="navLink" to="/signin">Signin</NavLink>
-                            <NavLink className="navLink" to="/signup">Signup</NavLink>
+                            <NavLink className="navLink" to="/signin">Sign in</NavLink>
+                            <NavLink className="navLink" to="/signup">Sign up</NavLink>
                         </>}
                         {/* <div className='secondaryLinks'> */}
                         {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/business">Business</NavLink>}
@@ -48,7 +48,7 @@ export default function Header() {
                     <div>
                         {userInfo?.fullName ? <>
                             <span className='logOutText' onClick={logOutHandle}>LogOut<LogoutIcon className='logOutIcon' fontSize='small' /></span>
-                        </> : <Button variant="text" className="signinBtnHeader" size="small" type="button" onClick={() => { navigate('/signin') }} >Signin</Button>}
+                        </> : <Button variant="text" className="signinBtnHeader" size="small" type="button" onClick={() => { navigate('/signin') }} >Sign in</Button>}
                     </div>
                 </div>
 
@@ -66,8 +66,8 @@ export default function Header() {
                                 <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/">Home</NavLink>
                                 <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/about">About</NavLink>
                                 {!userInfo && <>
-                                    <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/signin">Signin</NavLink>
-                                    <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/signup">Signup</NavLink>
+                                    <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/signin">Sign in</NavLink>
+                                    <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/signup">Sign up</NavLink>
                                 </>}
                                 {userInfo?.isBusinessAccount && <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/business">Business</NavLink>}
                                 {userInfo && <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/allbusinesscards">All Cards</NavLink>}

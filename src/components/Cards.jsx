@@ -1,9 +1,11 @@
 import { Button, CardActions, TextField } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import Spinner from 'react-bootstrap/Spinner';
 
 export default function Cards(props) {
+    const [loading, setLoading] = useState(false);
     const [resFromDb, setResFromDb] = useState({})
     const { cardId, token, businessName, businessDescription, businessAddress, businessPhoneNumber, businessImageUrl, forceUpdateManagmentCards } = props;
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -25,26 +27,36 @@ export default function Cards(props) {
     }
 
     function editHandle(dataToDB) {
+        setLoading(true)
         if (!dataToDB.businessImageUrl) dataToDB.businessImageUrl = businessImageUrl;
         axios.put(`https://business-card-app-by-em.herokuapp.com/cards/updatemycardbyid?cardid=${cardId}`, dataToDB, { headers: { token: token } })
             .then(res => {
                 setResFromDb(res.data)
+                setLoading(false)
                 setTimeout(() => {
                     setEditPopUpWindow(false)
                     forceUpdateManagmentCards()
                     setResFromDb({})
-                }, 2000)
+                }, 1500)
             })
-            .catch(err => console.error(err.response.data))
+            .catch(err => {
+                setResFromDb(err.response.data)
+                setLoading(false)
+            })
     }
 
     function deleteHandle() {
+        setLoading(true)
         axios.delete(`https://business-card-app-by-em.herokuapp.com/cards/deletemycardbyid?cardid=${cardId}`, { headers: { token: token } })
             .then(() => {
                 forceUpdateManagmentCards()
                 setDeletePopUpWindow(false)
+                setLoading(false)
             })
-            .catch(err => console.error(err.response.data))
+            .catch(err => {
+                setResFromDb(err.response.data)
+                setLoading(false)
+            })
     }
 
     return (
@@ -57,6 +69,7 @@ export default function Cards(props) {
                             <Button size="large" color="warning" variant="contained" onClick={deleteHandle}>Yes</Button>
                             <Button size="large" variant="contained" onClick={() => setDeletePopUpWindow(false)} >No</Button>
                         </CardActions>
+                        {loading && <Spinner className='loadingSpinner' style={{ top: '200px' }} animation="grow" variant="secondary" />}
                     </div>
                 </div>
             }
@@ -67,7 +80,7 @@ export default function Cards(props) {
                         <div className='closeWindow' onClick={() => setEditPopUpWindow(false)}>✖️</div>
                         <section id="businessContainerOfEdit" >
                             <form id="businessFormOfEdit" onSubmit={handleSubmit((data) => { editHandle(data) })}>
-
+                                {loading && <Spinner className='loadingSpinner' animation="grow" variant="secondary" />}
                                 <TextField
                                     type="text"
                                     variant="standard"
