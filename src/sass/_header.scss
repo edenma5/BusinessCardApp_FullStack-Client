@@ -77,32 +77,13 @@
             gap: 30px;
 
             @include desktop {
-                gap: 15px;
+                gap: 10px;
                 justify-content: space-evenly;
             }
 
             @include desktopXL {
                 gap: 50px;
             }
-
-            // .secondaryLinks {
-            //     // width: 100%;
-            //     display: flex;
-            //     // flex: 1;
-            //     flex-wrap: nowrap;
-            //     flex-direction: row;
-            //     justify-content: flex-end;
-            //     gap: 25px;
-
-            //     @include desktopXL {
-            //         gap: 50px;
-            //     }
-
-            //     @media screen and (max-width: 1190px) {
-            //         justify-content: flex-start;
-            //         gap: 15px;
-            //     }
-            // }
 
             .active {
                 color: #313bac !important;
@@ -118,7 +99,11 @@
                 transition: all 0.3s ease-in-out;
 
                 @include desktopXL {
-                    font-size: 1.1em;
+                    font-size: 1.2em;
+                }
+
+                @include desktop {
+                    font-size: 0.9em;
                 }
 
                 &:hover {
@@ -208,7 +193,7 @@
     }
 
     .navbarSideMenuContainer {
-        @media screen and (min-width:769px) {
+        @media screen and (min-width:831px) {
             display: none;
         }
 
