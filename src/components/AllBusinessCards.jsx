@@ -50,7 +50,7 @@ export default function AllBusinessCards() {
                                 <h4 style={{ fontSize: '2em' }}>No data to display</h4>
                             </div> : itemsArr.map((item) => {
                                 return (
-                                    <Card sx={{ width: 260 }} key={item._id} id='card'>
+                                    <Card sx={{ width: 260, height: 420 }} key={item._id} id='card'>
                                         <CardMedia
                                             component="img"
                                             height="120"

@@ -55,7 +55,7 @@ export default function ManagmentCards() {
                             <h4 style={{ fontSize: '2em' }}>You can do it right <span style={{ cursor: 'pointer', color: '#528265', textShadow: '1px 1px 1px #6f6f6f' }} onClick={() => navigate('/business')}>here</span></h4>
                         </div> : itemsArr.map((item) => {
                             return (
-                                <Card sx={{ width: 260 }} key={item._id} id='card'>
+                                <Card sx={{ width: 260, height: 480 }} key={item._id} id='card'>
                                     <CardMedia
                                         component="img"
                                         height="120"

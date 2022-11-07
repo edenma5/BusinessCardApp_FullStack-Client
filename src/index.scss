@@ -157,6 +157,23 @@ body {
   background-repeat: no-repeat;
   background-position: top;
   background-attachment: fixed;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: .8rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(132, 160, 150, 0.8);
+    border: .5px solid #000;
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+  }
 
   @include mobile {
     background-image: url('../src/Images/abstract-bubbles-white-background-with-bubbles-illustration-white_257312-308.webp');
@@ -261,32 +278,37 @@ body {
   justify-content: center;
 
   border-radius: 25px;
+  box-shadow: 0 0 25px #e4e4e4;
   width: 85vw;
   margin: 0 auto;
   padding: 5rem 1rem;
 
   @include tablet {
-    width: 90vw;
-    padding: 4rem .5rem;
-
-    height: 75vh;
+    width: 87vw;
+    height: 90vh;
+    padding: 0;
     overflow-y: auto;
-
-    &::-webkit-scrollbar {
-      width: 1rem;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(132, 160, 150, 0.8);
-      border: .5px solid #000;
-      border-radius: 50px;
-    }
-
-    &::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
-      border-radius: 50px;
-    }
   }
+
+  @include mobile {
+    width: 80vw;
+  }
+
+  &::-webkit-scrollbar {
+    width: .5rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(132, 160, 150, 0.8);
+    border: .5px solid #000;
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+  }
+
 
   .messageToClient {
     @extend %messageToClientCardComponents;

@@ -47,7 +47,7 @@ export default function Header() {
                     <span className='userNameLogged'>{userInfo?.fullName}</span>
                     <div>
                         {userInfo?.fullName ? <>
-                            <span className='logOutText' onClick={logOutHandle}>LogOut<LogoutIcon className='logOutIcon' fontSize='small' /></span>
+                            <span className='logOutText' onClick={logOutHandle}>Log out<LogoutIcon className='logOutIcon' fontSize='small' /></span>
                         </> : <Button variant="text" className="signinBtnHeader" size="small" type="button" onClick={() => { navigate('/signin') }} >Sign in</Button>}
                     </div>
                 </div>
