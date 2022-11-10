@@ -50,7 +50,7 @@ export default function Signin() {
                         id="standard-basic"
                         {...register("email", {
                             required: "Please enter email", pattern: {
-                                value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                                value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
                                 message: "invalid email"
                             }
                         })}
