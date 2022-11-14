@@ -1,4 +1,5 @@
-import { Button, CardActions, TextField } from '@mui/material'
+import { Button, CardActions, duration, TextField } from '@mui/material'
+import { motion } from "framer-motion";
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import axios from 'axios';
@@ -62,21 +63,33 @@ export default function Cards(props) {
     return (
         <>
             {deletePopUpWindow &&
-                <div className="blackWindowContainer">
-                    <div className="deletePopUpContainer">
+                <motion.div
+                    whileInView={{ opacity: [0, 1] }}
+                    transition={{ duration: .3 }}
+                    className="blackWindowContainer">
+                    <motion.div
+                        whileInView={{ opacity: [0, 1] }}
+                        transition={{ delay: .2, duration: .5 }}
+                        className="deletePopUpContainer">
                         <h4 className='verifyDeleteContent'>Are you sure you want to delete: <br /> {businessName} ?</h4>
                         <CardActions className="buttonsContainer">
                             <Button size="large" color="warning" variant="contained" onClick={deleteHandle}>Yes</Button>
                             <Button size="large" variant="contained" onClick={() => setDeletePopUpWindow(false)} >No</Button>
                         </CardActions>
                         {loading && <Spinner className='loadingSpinner' style={{ top: '200px' }} animation="grow" variant="secondary" />}
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             }
             {
                 editPopUpWindow &&
-                <div className="blackWindowContainer">
-                    <div className="editPopUpContainer" >
+                <motion.div
+                    whileInView={{ opacity: [0, 1] }}
+                    transition={{ duration: .3 }}
+                    className="blackWindowContainer">
+                    <motion.div
+                        whileInView={{ opacity: [0, 1] }}
+                        transition={{ delay: .2, duration: .5 }}
+                        className="editPopUpContainer" >
                         <div className='closeWindow' onClick={() => setEditPopUpWindow(false)}>✖️</div>
                         <section id="businessContainerOfEdit" >
                             <form id="businessFormOfEdit" onSubmit={handleSubmit((data) => { editHandle(data) })}>
@@ -150,8 +163,8 @@ export default function Cards(props) {
                             </form>
                             <span className="resFromDb">{resFromDb[0]?.message}</span>
                         </section>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             }
             <Button size="small" onClick={deletePopUpHandle} color="warning">Delete</Button>
             <Button size="small" onClick={editPopUpHandle}>Edit</Button>

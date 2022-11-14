@@ -1,5 +1,6 @@
 import { Button, TextField } from '@mui/material';
 import React, { useContext, useState } from 'react'
+import { motion } from 'framer-motion'
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import images from '../Images/index'
@@ -34,11 +35,21 @@ export default function Business() {
         <div style={{ marginBottom: "100px" }}>
 
             <div className='mainTitleContainer'>
-                <h1 className="mainTitle">Create a business card</h1>
-                <h6 className='littleTitle'>For business customers only</h6>
+                <motion.h1
+                    whileInView={{ opacity: [0, 1], x: [-400, 0] }}
+                    transition={{ duration: .6 }}
+                    className="mainTitle">Create a business card</motion.h1>
+                <motion.h6
+                    whileInView={{ opacity: [0, 1], x: [400, 0] }}
+                    transition={{ duration: .6 }}
+                    className='littleTitle'
+                >For business customers only</motion.h6>
             </div>
 
-            <section id="businessContainer">
+            <motion.section
+                whileInView={{ opacity: [0, 1], y: [300, 0], scale: [.5, 1] }}
+                transition={{ duration: .8 }}
+                id="businessContainer">
                 <form id="businessForm" onSubmit={handleSubmit((data) => { onSubmitHandle(data) })}>
                     {loading && <Spinner className='loadingSpinner' animation="grow" variant="secondary" />}
                     <TextField
@@ -108,7 +119,7 @@ export default function Business() {
                     <Button variant="contained" type="submit" className='submitBtn'>Create Card</Button>
                 </form>
                 <span className="resFromDb">{resFromDb[0]?.message}</span>
-            </section>
+            </motion.section>
         </div>
     )
 }

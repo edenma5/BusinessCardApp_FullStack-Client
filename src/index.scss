@@ -83,7 +83,7 @@ $mainColor: rgb(132, 160, 150);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.33);
+  box-shadow: 0 0 15px #e4e4e4de;
   border-radius: 25px;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -161,7 +161,7 @@ body {
   overflow-y: auto;
 
   &::-webkit-scrollbar {
-    width: .8rem;
+    width: .6rem;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -187,7 +187,6 @@ body {
   z-index: 0;
   font-family: Akaya Telivigala;
   width: 650px;
-  height: 120px;
   margin: 20px auto 40px;
   padding: 10px 0;
 
@@ -254,6 +253,33 @@ body {
   }
 }
 
+.searchBox {
+  margin: 0 auto 20px;
+  display: flex;
+  width: 80vw;
+  justify-content: flex-start;
+  align-items: center;
+
+  input {
+    box-shadow: 0 0 15px #e4e4e4de;
+    width: 220px;
+    font-family: Acme;
+    letter-spacing: 1px;
+    border: 4px ridge rgba(132, 160, 150, 0.7);
+    transition: all .3s ease-out;
+
+    &:hover {
+      border: 4px ridge rgba(132, 160, 150);
+      box-shadow: 0 0 25px #e4e4e4de;
+    }
+
+    color: #000;
+    background-color: #fffffff0;
+    border-radius: 15px;
+    padding: .2rem .5rem;
+  }
+}
+
 .loadingSpinner {
   position: absolute;
   z-index: 2;
@@ -262,8 +288,8 @@ body {
   bottom: -12%;
   width: 55px;
   height: 55px;
-  background-color: #528265ce;
-  border: 15px double rgba(238, 247, 255, 0.8);
+  background-color: rgba(132, 160, 150);
+  border: 20px double #ffffff;
 
   @include mobile {
     width: 50px;

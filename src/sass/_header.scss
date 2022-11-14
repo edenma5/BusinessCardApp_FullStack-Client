@@ -10,7 +10,7 @@
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border-bottom-left-radius: 50px;
-    box-shadow: 0 1.5px 20px #6b768877;
+    box-shadow: 0 0 25px #e4e4e4de;
 
     @include desktopXL {
         padding: 1.4rem 1rem;
@@ -37,10 +37,10 @@
             animation: logo 7s linear 1s infinite alternate;
             transition: all 0.4s ease-in-out;
 
-            &:hover {
-                scale: 1.1;
-                translate: 10px;
-            }
+            // &:hover {
+            //     scale: 1.1;
+            //     translate: 10px;
+            // }
 
             @include desktopXL {
                 width: 280px;

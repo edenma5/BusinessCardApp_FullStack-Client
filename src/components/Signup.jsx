@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { motion } from 'framer-motion';
 import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, FormControlLabel, FormGroup, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
@@ -31,10 +32,16 @@ export default function Signup() {
     return (
         <div style={{ marginBottom: "100px" }}>
             <div className='mainTitleContainer'>
-                <h1 className="mainTitle">Sign up</h1>
+                <motion.h1
+                    whileInView={{ opacity: [0, 1], x: [-400, 0] }}
+                    transition={{ duration: .6 }}
+                    className="mainTitle">Sign up</motion.h1>
             </div>
 
-            <section id="signupContainer">
+            <motion.section
+                whileInView={{ opacity: [0, 1], y: [300, 0], scale: [.5, 1] }}
+                transition={{ duration: .8 }}
+                id="signupContainer">
                 <form id="signupForm" onSubmit={handleSubmit((data) => { onSubmitHandle(data) })}>
                     {loading && <Spinner className='loadingSpinner' animation="grow" variant="secondary" />}
                     <TextField
@@ -86,7 +93,7 @@ export default function Signup() {
                     <Button variant="contained" className="signinBtn" size="small" type="button" onClick={() => { navigate('/signin') }} >Sign in</Button>
                 </form>
                 <span className="resFromDb">{resFromDb}</span>
-            </section>
+            </motion.section>
         </div>
     );
 }

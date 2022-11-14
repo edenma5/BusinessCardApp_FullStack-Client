@@ -23,22 +23,24 @@ export default function Header() {
     return (
         <>
             <nav className='navbarContainer'>
-                <div className='logoContainer'>
+                <motion.div
+                    whileHover={{ scale: [1, 1.1] }}
+                    transition={{ duration: .6, ease: 'backInOut' }}
+                    className='logoContainer'>
                     <img className='logo' src={images.logo} onClick={() => { navigate('/') }} alt='logo' />
-                </div>
+                </motion.div>
                 <div className='navbarLinks'>
                     <div className='navItems'>
                         <NavLink className={isActive => 'navLink ' + (isActive ? 'active' : 'inactive')} to="/">Home</NavLink>
                         <NavLink className='navLink' to="/about">About</NavLink>
-                        {!userInfo && <>
-                            <NavLink className="navLink" to="/signin">Sign in</NavLink>
-                            <NavLink className="navLink" to="/signup">Sign up</NavLink>
-                        </>}
-                        {/* <div className='secondaryLinks'> */}
+                        {!userInfo &&
+                            <>
+                                <NavLink className="navLink" to="/signin">Sign in</NavLink>
+                                <NavLink className="navLink" to="/signup">Sign up</NavLink>
+                            </>}
                         {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/business">Business</NavLink>}
                         {userInfo && <NavLink className="navLink" to="/allbusinesscards">All Cards</NavLink>}
                         {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/managmentcards">My Cards</NavLink>}
-                        {/* </div> */}
                     </div>
                 </div>
 

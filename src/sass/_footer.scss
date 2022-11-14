@@ -7,7 +7,6 @@
 }
 
 .footerContainer {
-
     footer {
         background-image: url("../Images/bgIMG.png");
         background-size: cover;
@@ -23,7 +22,7 @@
         padding: .9rem 0;
         height: fit-content;
         width: 100vw;
-        box-shadow: 0 -1.5px 20px #6b768877;
+        box-shadow: 0 0 25px #e4e4e4de;
 
         @include desktopXL {
             padding: 1.3rem 0;

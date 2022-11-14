@@ -1,4 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
+import { motion } from 'framer-motion'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
@@ -17,6 +18,7 @@ export default function ManagmentCards() {
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
     const navigate = useNavigate()
     const [itemsArr, setItemsArr] = useState([]);
+    const [searchValue, setSearchValue] = useState('')
     const [tokenExpired, setTokenExpired] = useState(false);
 
     useEffect(() => {
@@ -45,15 +47,31 @@ export default function ManagmentCards() {
     return (
         <div style={{ marginBottom: "100px" }}>
             <div className='mainTitleContainer'>
-                <h1 className="mainTitle">My Business Cards</h1>
+                <motion.h1
+                    whileInView={{ opacity: [0, 1], x: [-400, 0] }}
+                    transition={{ duration: .6 }}
+                    className="mainTitle">My Business Cards</motion.h1>
             </div>
+            <motion.div
+                whileInView={{ opacity: [0, 1], x: [-300, 0] }}
+                transition={{ duration: .8 }}
+                className='searchBox'>
+                <input type="text" placeholder='Search Card' onChange={e => setSearchValue(e.target.value.toLowerCase())} />
+            </motion.div>
             {loading ? <Spinner className='loadingSpinner' style={{ top: '300px' }} animation="grow" variant="secondary" /> :
-                <div id='cardContiner'>
+                <motion.div
+                    id='cardContiner'
+                    whileInView={{ opacity: [0, 1], y: [300, 0] }}
+                    transition={{ duration: .8 }}
+                >
                     {tokenExpired ? <div className="messageToClient"><h4 style={{ fontSize: '2em' }}>Dear customer,<br /> Your stay on this site has expired, you can log in again by <span style={{ cursor: 'pointer', color: '#528265', textShadow: '1px 1px 1px #6f6f6f' }} onClick={() => tokenExpiredHandle()}>clicking here</span></h4></div> : itemsArr.length === 0 ?
                         <div className="messageToClient">
                             <h4 style={{ fontSize: '2em' }}>I'ts looks like you haven't created a business card yet</h4>
                             <h4 style={{ fontSize: '2em' }}>You can do it right <span style={{ cursor: 'pointer', color: '#528265', textShadow: '1px 1px 1px #6f6f6f' }} onClick={() => navigate('/business')}>here</span></h4>
-                        </div> : itemsArr.map((item) => {
+                        </div> : itemsArr.filter(sItem => {
+                            if (!searchValue) return sItem;
+                            else return sItem.businessName.toLowerCase().includes(searchValue);
+                        }).map((item) => {
                             return (
                                 <Card sx={{ width: 260, height: 480 }} key={item._id} id='card'>
                                     <CardMedia
@@ -86,7 +104,7 @@ export default function ManagmentCards() {
                                 </Card>
                             )
                         })}
-                </div>}
+                </motion.div>}
         </div>
     )
 }
