@@ -33,13 +33,13 @@ export default function Signup() {
         <div style={{ marginBottom: "100px" }}>
             <div className='mainTitleContainer'>
                 <motion.h1
-                    whileInView={{ opacity: [0, 1], x: [-400, 0] }}
+                    animate={{ opacity: [0, 1], x: [-400, 0] }}
                     transition={{ duration: .6 }}
                     className="mainTitle">Sign up</motion.h1>
             </div>
 
             <motion.section
-                whileInView={{ opacity: [0, 1], y: [300, 0], scale: [.5, 1] }}
+                animate={{ opacity: [0, 1], y: [300, 0], scale: [.5, 1] }}
                 transition={{ duration: .8 }}
                 id="signupContainer">
                 <form id="signupForm" onSubmit={handleSubmit((data) => { onSubmitHandle(data) })}>

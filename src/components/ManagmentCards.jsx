@@ -48,12 +48,12 @@ export default function ManagmentCards() {
         <div style={{ marginBottom: "100px" }}>
             <div className='mainTitleContainer'>
                 <motion.h1
-                    whileInView={{ opacity: [0, 1], x: [-400, 0] }}
+                    animate={{ opacity: [0, 1], x: [-400, 0] }}
                     transition={{ duration: .6 }}
                     className="mainTitle">My Business Cards</motion.h1>
             </div>
             <motion.div
-                whileInView={{ opacity: [0, 1], x: [-300, 0] }}
+                animate={{ opacity: [0, 1], x: [-300, 0] }}
                 transition={{ duration: .8 }}
                 className='searchBox'>
                 <input type="text" placeholder='Search Card' onChange={e => setSearchValue(e.target.value.toLowerCase())} />
@@ -61,7 +61,7 @@ export default function ManagmentCards() {
             {loading ? <Spinner className='loadingSpinner' style={{ top: '300px' }} animation="grow" variant="secondary" /> :
                 <motion.div
                     id='cardContiner'
-                    whileInView={{ opacity: [0, 1], y: [300, 0] }}
+                    animate={{ opacity: [0, 1], y: [300, 0] }}
                     transition={{ duration: .8 }}
                 >
                     {tokenExpired ? <div className="messageToClient"><h4 style={{ fontSize: '2em' }}>Dear customer,<br /> Your stay on this site has expired, you can log in again by <span style={{ cursor: 'pointer', color: '#528265', textShadow: '1px 1px 1px #6f6f6f' }} onClick={() => tokenExpiredHandle()}>clicking here</span></h4></div> : itemsArr.length === 0 ?

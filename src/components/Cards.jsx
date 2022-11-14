@@ -64,11 +64,11 @@ export default function Cards(props) {
         <>
             {deletePopUpWindow &&
                 <motion.div
-                    whileInView={{ opacity: [0, 1] }}
+                    animate={{ opacity: [0, 1] }}
                     transition={{ duration: .3 }}
                     className="blackWindowContainer">
                     <motion.div
-                        whileInView={{ opacity: [0, 1] }}
+                        animate={{ opacity: [0, 1] }}
                         transition={{ delay: .2, duration: .5 }}
                         className="deletePopUpContainer">
                         <h4 className='verifyDeleteContent'>Are you sure you want to delete: <br /> {businessName} ?</h4>
@@ -83,11 +83,11 @@ export default function Cards(props) {
             {
                 editPopUpWindow &&
                 <motion.div
-                    whileInView={{ opacity: [0, 1] }}
+                    animate={{ opacity: [0, 1] }}
                     transition={{ duration: .3 }}
                     className="blackWindowContainer">
                     <motion.div
-                        whileInView={{ opacity: [0, 1] }}
+                        animate={{ opacity: [0, 1] }}
                         transition={{ delay: .2, duration: .5 }}
                         className="editPopUpContainer" >
                         <div className='closeWindow' onClick={() => setEditPopUpWindow(false)}>✖️</div>

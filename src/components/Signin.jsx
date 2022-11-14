@@ -39,12 +39,12 @@ export default function Signin() {
         <div style={{ marginBottom: "100px" }}>
             <div className='mainTitleContainer'>
                 <motion.h1
-                    whileInView={{ opacity: [0, 1], x: [-400, 0] }}
+                    animate={{ opacity: [0, 1], x: [-400, 0] }}
                     transition={{ duration: .6 }}
                     className="mainTitle">Sign in</motion.h1>
             </div>
             <motion.section
-                whileInView={{ opacity: [0, 1], y: [300, 0], scale: [.5, 1] }}
+                animate={{ opacity: [0, 1], y: [300, 0], scale: [.5, 1] }}
                 transition={{ duration: .8 }}
                 id="signinContainer">
                 <form id="signinForm" onSubmit={handleSubmit((data) => { onSubmitHandle(data) })}>

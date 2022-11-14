@@ -7,6 +7,7 @@ import images from '../Images/index'
 import axios from 'axios'
 import Spinner from 'react-bootstrap/Spinner';
 import { loader } from './App';
+
 export default function Business() {
     const { loading, setLoading } = useContext(loader);
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
@@ -36,18 +37,18 @@ export default function Business() {
 
             <div className='mainTitleContainer'>
                 <motion.h1
-                    whileInView={{ opacity: [0, 1], x: [-400, 0] }}
+                    animate={{ opacity: [0, 1], x: [-400, 0] }}
                     transition={{ duration: .6 }}
                     className="mainTitle">Create a business card</motion.h1>
                 <motion.h6
-                    whileInView={{ opacity: [0, 1], x: [400, 0] }}
+                    animate={{ opacity: [0, 1], x: [400, 0] }}
                     transition={{ duration: .6 }}
                     className='littleTitle'
                 >For business customers only</motion.h6>
             </div>
 
             <motion.section
-                whileInView={{ opacity: [0, 1], y: [300, 0], scale: [.5, 1] }}
+                animate={{ opacity: [0, 1], y: [300, 0], scale: [.5, 1] }}
                 transition={{ duration: .8 }}
                 id="businessContainer">
                 <form id="businessForm" onSubmit={handleSubmit((data) => { onSubmitHandle(data) })}>

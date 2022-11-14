@@ -24,12 +24,15 @@ export default function Header() {
         <>
             <nav className='navbarContainer'>
                 <motion.div
-                    whileHover={{ scale: [1, 1.1] }}
-                    transition={{ duration: .6, ease: 'backInOut' }}
+                    animate={{ scale: [.6, 1], opacity: [0, 1] }}
+                    transition={{ duration: .8, ease: 'backInOut' }}
                     className='logoContainer'>
                     <img className='logo' src={images.logo} onClick={() => { navigate('/') }} alt='logo' />
                 </motion.div>
-                <div className='navbarLinks'>
+                <motion.div
+                    animate={{ y: [-50, 0], opacity: [0, 1] }}
+                    transition={{ duration: .8 }}
+                    className='navbarLinks'>
                     <div className='navItems'>
                         <NavLink className={isActive => 'navLink ' + (isActive ? 'active' : 'inactive')} to="/">Home</NavLink>
                         <NavLink className='navLink' to="/about">About</NavLink>
@@ -42,9 +45,12 @@ export default function Header() {
                         {userInfo && <NavLink className="navLink" to="/allbusinesscards">All Cards</NavLink>}
                         {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/managmentcards">My Cards</NavLink>}
                     </div>
-                </div>
+                </motion.div>
 
-                <div className='userLoggedContainer'>
+                <motion.div
+                    animate={{ scale: [.6, 1], opacity: [0, 1] }}
+                    transition={{ duration: .8, ease: 'backInOut' }}
+                    className='userLoggedContainer'>
                     <AccountCircleIcon className='userIcon' fontSize='large' />
                     <span className='userNameLogged'>{userInfo?.fullName}</span>
                     <div>
@@ -52,7 +58,7 @@ export default function Header() {
                             <span className='logOutText' onClick={logOutHandle}>Log out<LogoutIcon className='logOutIcon' fontSize='small' /></span>
                         </> : <Button variant="text" className="signinBtnHeader" size="small" type="button" onClick={() => { navigate('/signin') }} >Sign in</Button>}
                     </div>
-                </div>
+                </motion.div>
 
                 <div className='navbarSideMenuContainer'>
                     <HiMenuAlt4 className='menuIcon' onClick={() => setToggle(true)} />
@@ -60,7 +66,7 @@ export default function Header() {
                     {toggle && (
                         <motion.div
                             className='sideMenuContainer'
-                            whileInView={{ x: [150, 0] }}
+                            animate={{ x: [150, 0] }}
                             transition={{ duration: .8, ease: 'easeOut' }}
                         >
                             <HiX className='closeIcon' onClick={() => setToggle(false)} />

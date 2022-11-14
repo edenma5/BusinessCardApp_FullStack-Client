@@ -6,13 +6,13 @@ export default function About() {
         <div style={{ marginBottom: "100px" }}>
             <div className='mainTitleContainer'>
                 <motion.h1
-                    whileInView={{ opacity: [0, 1], x: [-400, 0] }}
+                    animate={{ opacity: [0, 1], x: [-400, 0] }}
                     transition={{ duration: .6 }}
                     className="mainTitle">About Us</motion.h1>
             </div>
 
             <motion.div
-                whileInView={{ opacity: [0, 1], y: [300, 0] }}
+                animate={{ opacity: [0, 1], y: [300, 0] }}
                 transition={{ duration: .8 }}
                 className='aboutContentContainer'>
                 <div className='aboutContent'>

@@ -26,14 +26,15 @@ export default function Home() {
         <div style={{ marginBottom: "100px" }}>
             <div className='mainTitleContainer'>
                 <motion.h1
-                    whileInView={{ opacity: [0, 1], x: [-400, 0] }}
+                    animate={{ opacity: [0, 1], x: [-400, 0] }}
                     transition={{ duration: .6 }}
-                    className="mainTitle">Business Card App</motion.h1>
+                    className="mainTitle">Business Card App
+                </motion.h1>
             </div>
 
             {userInfo ?
                 <motion.div
-                    whileInView={{ opacity: [0, 1], y: [300, 0] }}
+                    animate={{ opacity: [0, 1], y: [300, 0] }}
                     transition={{ duration: .8 }}
                     className='homePageContentContainer'>
                     <div className='homePageContent'>
@@ -44,7 +45,7 @@ export default function Home() {
                     </div>
                 </motion.div> :
                 <motion.div
-                    whileInView={{ opacity: [0, 1], y: [300, 0] }}
+                    animate={{ opacity: [0, 1], y: [300, 0] }}
                     transition={{ duration: .8 }}
                     className='homePageContentContainer'>
                     <div className='homePageContent'>
