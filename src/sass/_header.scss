@@ -37,11 +37,6 @@
             animation: logo 7s linear 1s infinite alternate;
             transition: all 0.4s ease-in-out;
 
-            // &:hover {
-            //     scale: 1.1;
-            //     translate: 10px;
-            // }
-
             @include desktopXL {
                 width: 280px;
             }
@@ -92,7 +87,7 @@
             .navLink {
                 color: #6b7688;
                 text-decoration: none;
-                text-transform: uppercase;
+                text-transform: capitalize;
                 font-weight: 500;
                 font-size: 1em;
                 padding: .3rem;
@@ -144,6 +139,7 @@
 
         .userNameLogged {
             font-size: 1.1em;
+            text-transform: capitalize;
             width: max-content;
 
 
@@ -171,6 +167,7 @@
 
         .logOutText {
             font-size: .8em;
+            text-transform: capitalize;
             cursor: pointer;
 
             @include desktopXL {
@@ -222,7 +219,7 @@
             z-index: 10000;
 
             padding: 1rem;
-            width: 150px;
+            width: 160px;
             height: 350px;
 
             display: flex;
@@ -262,7 +259,7 @@
                     color: #6b7688;
                     text-decoration: none;
                     font-size: 1rem;
-                    text-transform: uppercase;
+                    text-transform: capitalize;
                     font-weight: 500;
 
                     &:hover {

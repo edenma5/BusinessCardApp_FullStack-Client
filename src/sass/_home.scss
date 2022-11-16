@@ -71,5 +71,13 @@
                 font-size: 2rem;
             }
         }
+
+        .linksText {
+            cursor: pointer;
+            text-transform: capitalize;
+            font-weight: bold;
+            color: rgb(0, 90, 169);
+            text-shadow: 1px 1px 3px #bababa;
+        }
     }
 }

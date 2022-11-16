@@ -38,6 +38,7 @@ $mainColor: rgb(132, 160, 150);
 %specialWordsOfContent {
   display: inline-block;
   font-size: 1.5em;
+  text-transform: capitalize;
   font-weight: 700;
   letter-spacing: .3rem;
   text-shadow: 1.5px 1.5px 1px rgb(0, 0, 0);
@@ -212,6 +213,7 @@ body {
   .mainTitle {
     height: auto;
     text-align: center;
+    text-transform: capitalize;
     font-size: 3.5em;
     letter-spacing: 5px;
     color: rgb(132, 160, 150);

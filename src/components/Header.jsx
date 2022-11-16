@@ -41,9 +41,9 @@ export default function Header() {
                                 <NavLink className="navLink" to="/signin">Sign in</NavLink>
                                 <NavLink className="navLink" to="/signup">Sign up</NavLink>
                             </>}
-                        {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/business">Business</NavLink>}
-                        {userInfo && <NavLink className="navLink" to="/allbusinesscards">All Cards</NavLink>}
-                        {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/managmentcards">My Cards</NavLink>}
+                        {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/business">Create New Card</NavLink>}
+                        {userInfo && <NavLink className="navLink" to="/allbusinesscards">Cards Gallery</NavLink>}
+                        {userInfo?.isBusinessAccount && <NavLink className="navLink" to="/managmentcards">Personal Area</NavLink>}
                     </div>
                 </motion.div>
 
@@ -66,7 +66,7 @@ export default function Header() {
                     {toggle && (
                         <motion.div
                             className='sideMenuContainer'
-                            animate={{ x: [150, 0] }}
+                            animate={{ x: [160, 0] }}
                             transition={{ duration: .8, ease: 'easeOut' }}
                         >
                             <HiX className='closeIcon' onClick={() => setToggle(false)} />
@@ -77,9 +77,9 @@ export default function Header() {
                                     <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/signin">Sign in</NavLink>
                                     <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/signup">Sign up</NavLink>
                                 </>}
-                                {userInfo?.isBusinessAccount && <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/business">Business</NavLink>}
-                                {userInfo && <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/allbusinesscards">All Cards</NavLink>}
-                                {userInfo?.isBusinessAccount && <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/managmentcards">My Cards</NavLink>}
+                                {userInfo?.isBusinessAccount && <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/business">Create New Card</NavLink>}
+                                {userInfo && <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/allbusinesscards">Cards Gallery</NavLink>}
+                                {userInfo?.isBusinessAccount && <NavLink className="navLinkSideMenu" onClick={() => setToggle(false)} to="/managmentcards">Personal Area</NavLink>}
                             </section>
                         </motion.div>
                     )}

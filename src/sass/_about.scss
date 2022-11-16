@@ -49,5 +49,9 @@
         .specialWords {
             @extend %specialWordsOfContent;
         }
+
+        ul {
+            list-style-type: "✭ ";
+        }
     }
 }
